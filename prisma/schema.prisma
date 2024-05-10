@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Gallery {
+  id        String   @id
+  listingId String
+  createdAt DateTime
+  updatedAt DateTime
+  Image     Image[]
+
+  @@map("galleries")
+}
+
+model Image {
+  id        String  @id
+  galleryId String
+  order     Int
+  isRemote  Boolean
+  remoteUrl String
+  pathName  String?
+
+  Gallery Gallery @relation(fields: [galleryId], references: [id], onDelete: Cascade)
+
+  @@index([pathName])
+  @@index([pathName, order])
+  @@map("images")
+}

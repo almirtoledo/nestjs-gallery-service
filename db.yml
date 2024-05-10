@@ -1,0 +1,9 @@
+services:
+  db:
+    image: mariadb:latest
+    command: --innodb_buffer_pool_size=8G --innodb_log_file_size=4GB
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: dev
+    ports:
+      - 3313:3306
