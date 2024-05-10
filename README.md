@@ -1,6 +1,6 @@
 # Listings Gallery
 
-Este case de estudo simula um gateway publicando 60 mil listings, cada um com 30 imagens de servidor remoto. (total de 1.8000.000 imagens).
+Este case de estudo simula um gateway publicando 60 mil listings, cada um com 30 imagens de servidor remoto. (total de 1.800.000 imagens).
 
 Pretendemos disponibilizar as imagens o mais rapido possível, logo persistimos e utlizamos com link do servidor remoto, porem acionamos um processo de a parte, onde de maneira mais lenta realizamos o download as imagens para nosso storage, e atualizamos o banco de dados a medida que a demanda seja concluida.
 
